@@ -1,0 +1,36 @@
+{
+    "chest": {
+      "title": "Chest",
+      "description": "This is test description",
+      "streches": [
+        {
+          "images": [
+            {
+              "viewLink": "male-strech-46-side.gif",
+              "redirectLink": "https://youtu.b"
+            }
+          ],
+          "steps": [
+            "Using a raised wall, place your arm at a 90° angle against it."
+          ]
+        }
+      ]
+    },
+    "abdominals": {
+      "title": "Abdominals",
+      "description": "This is test description",
+      "streches": [
+        {
+          "images": [
+            {
+              "viewLink": "male-strech-46-side.gif",
+              "redirectLink": "https://youtu.b"
+            }
+          ],
+          "steps": [
+            "Using a raised wall, place your arm at a 90° angle against it."
+          ]
+        }
+      ]
+    }
+  }

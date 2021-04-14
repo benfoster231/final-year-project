@@ -1,0 +1,9 @@
+#age .rs-range-color, #weight .rs-range-color, #height .rs-range-color  {
+    background-color: #ff8d00 !important;
+}
+#age .rs-handle:after, #weight .rs-handle:after, #height .rs-handle:after  {
+    background-color: #000000 !important;
+}
+#age .rs-border, #weight .rs-border, #height .rs-border  {
+    border-color: #ff8d00 !important;
+}

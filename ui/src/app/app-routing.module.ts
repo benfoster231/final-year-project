@@ -15,27 +15,27 @@ const routes: Routes = [
   },
   {
     path: ROUTS.HOME_PAGE,
-    loadChildren: './all/layout/content/home/home.module#HomeModule'
+    loadChildren: () => import('./all/layout/content/home/home.module').then(m => m.HomeModule)
   },
   {
     path: ROUTS.EXERCISE_FIGURES_PAGE,
-    loadChildren: './all/layout/content/exercise-figures/exercise-figures.module#ExerciseFiguresModule'
+    loadChildren: () => import('./all/layout/content/exercise-figures/exercise-figures.module').then(m => m.ExerciseFiguresModule)
   },
   {
     path: ROUTS.EXERCISE_CALORIE_CALCULATOR_PAGE,
-    loadChildren: './all/layout/content/exercise-calorie-calculator/exercise-calorie-calculator.module#ExerciseCalorieCalculatorModule'
+    loadChildren: () => import('./all/layout/content/exercise-calorie-calculator/exercise-calorie-calculator.module').then(m => m.ExerciseCalorieCalculatorModule)
   },
   {
     path: ROUTS.EXERCISE_MACRO_CALCULATOR_PAGE,
-    loadChildren: './all/layout/content/exercise-macro-calculator/exercise-macro-calculator.module#ExerciseMacroCalculatorModule'
+    loadChildren: () => import('./all/layout/content/exercise-macro-calculator/exercise-macro-calculator.module').then(m => m.ExerciseMacroCalculatorModule)
   },
   {
     path: ROUTS.EXERCISE_ONE_REP_MAX_TOOL_PAGE,
-    loadChildren: './all/layout/content/exercise-one-rep-max-tool/exercise-one-rep-max-tool.module#ExerciseOneRepMaxToolModule'
+    loadChildren: () => import('./all/layout/content/exercise-one-rep-max-tool/exercise-one-rep-max-tool.module').then(m => m.ExerciseOneRepMaxToolModule)
   },
   {
-    path: ROUTS.STRECHES_PAGE,
-    loadChildren: './all/layout/content/streches/streches.module#StrechesModule'
+    path: 'streches',
+    loadChildren: () => import('./all/layout/content/gym-streches/gym-streches.module').then(m => m.GymStrechedModule)
   },
 ];
 

@@ -29,8 +29,9 @@ export class HttpRepository {
   /**
    * Load streches data
    */
-  loadStrechesData(): Observable<any> {
+  public loadStrechesData(): Observable<any> {
 
+    return this.httpClient.get('assets/data/strechesData.json');
     return this.get(CONSTANTS.getDomain() + 'assets/data/strechesData.json', null)
 		// return this.http.get('../../' + URL.LOAD_ALL_SECTIONS)
 		// 		.map((res: Response) => res.json() || {});

@@ -1,0 +1,253 @@
+<!-- Wrapper -->
+<div id="wrapper">
+    <!-- START SECTION HEADINGS -->
+    <!-- Header Container
+        ================================================== -->
+        <header id="header-container">
+            <!-- Header -->
+            <div id="header">
+                <div class="container container-header">
+                    <!-- Left Side Content -->
+                    <div class="left-side">
+                        <!-- Logo -->
+                        <div id="logo">
+                            <a href="index.html"><img src="assets/images/bg/fitness.jpg" alt=""></a>
+                        </div>
+                        <!-- Mobile Navigation -->
+                        <div class="mmenu-trigger">
+                            <button class="hamburger hamburger--collapse" type="button">
+                                <span class="hamburger-box">
+							<span class="hamburger-inner"></span>
+                                </span>
+                            </button>
+                        </div>
+                        <!-- Main Navigation -->
+                        <nav id="navigation" class="style-1">
+                            <ul id="responsive">
+                                <li><a href="javascript:;">What is Elite Muscles</a></li>
+                                <li><a href="javascript:;">Excercises</a></li>
+                                <li><a href="javascript:;">Tools</a></li>
+                                <li><a href="javascript:;">Media</a></li>
+                            </ul>
+                        </nav>
+                        <!-- Main Navigation / End -->
+                    </div>
+                    <!-- Left Side Content / End -->
+
+                </div>
+            </div>
+            <!-- Header / End -->
+
+        </header>
+        <div class="clearfix"></div>
+        <!-- Header Container / End -->
+    <div class="header-map google-maps properties" *ngIf="(getStoreListDone && !getStoreListDone.closed) || (gymListResponseDataInterface && gymListResponseDataInterface.data.length > 0)">
+        <div #gmap class="map" id="main-map" style="height: 450px; width: 100%;"></div>
+    </div>
+    <!-- END SECTION HEADINGS -->
+
+    <!-- START SECTION PROPERTIES LISTING -->
+    <section class="properties-list featured portfolio blog">
+        <div class="container">
+            <section class="headings-2 pt-0 pb-0">
+                <div class="pro-wrapper">
+                    <div class="detail-wrapper-body">
+                        <div class="listing-title-bar">
+                            <div class="text-heading text-left">
+                                <p><a href="index.html">Home </a> &nbsp;/&nbsp; <span>Listings</span></p>
+                            </div>
+                            <h3 #storeListTop>Grid View</h3>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Search Form -->
+            <!--/ End Search Form -->
+            <div class="row">
+                <div class="item col-lg-4 col-md-6 col-xs-12 landscapes sale">
+                    <div class="project-single">
+                        <div class="project-inner project-head">
+                            <div class="homes">
+                                <!-- homes img -->
+                                <a href="single-property-1.html" class="homes-img">
+                                    <div class="homes-tag button alt featured">Featured</div>
+                                    <div class="homes-tag button alt sale">For Sale</div>
+                                    <div class="homes-price">$9,000/mo</div>
+                                    <img src="images/blog/b-11.jpg" alt="home-1" class="img-responsive">
+                                </a>
+                            </div>
+                            <div class="button-effect">
+                                <a href="single-property-1.html" class="btn"><i class="fa fa-link"></i></a>
+                                <a href="https://www.youtube.com/watch?v=14semTlwyUY" class="btn popup-video popup-youtube"><i class="fas fa-video"></i></a>
+                                <a href="single-property-2.html" class="img-poppu btn"><i class="fa fa-photo"></i></a>
+                            </div>
+                        </div>
+                        <!-- homes content -->
+                        <div class="homes-content">
+                            <!-- homes address -->
+                            <h3><a href="single-property-1.html">Real House Luxury Villa</a></h3>
+                            <p class="homes-address mb-3">
+                                <a href="single-property-1.html">
+                                    <i class="fa fa-map-marker"></i><span>Est St, 77 - Central Park South, NYC</span>
+                                </a>
+                            </p>
+                            <!-- homes List -->
+                            <ul class="homes-list clearfix">
+                                <li>
+                                    <span>6 Beds</span>
+                                </li>
+                                <li>
+                                    <span>3 Baths</span>
+                                </li>
+                                <li>
+                                    <span>720 sq ft</span>
+                                </li>
+                                <li>
+                                    <span>2 Garages</span>
+                                </li>
+                            </ul>
+                            <div class="footer">
+                                <a href="agent-details.html">
+                                    <img src="images/testimonials/ts-1.jpg" alt="" class="mr-2"> Lisa Jhonson
+                                </a>
+                                <span>
+                            <i class="fa fa-calendar"></i> 2 months ago
+                        </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <nav aria-label="..." class="pt-3">
+                <ul class="pagination mt-0">
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1">Previous</a>
+                    </li>
+                    <li class="page-item active">
+                        <a class="page-link" href="#">1 <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">5</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">Next</a>
+                    </li>
+                </ul>
+            </nav> -->
+            <!-- pagination start -->
+            <div *ngIf="gymListResponseDataInterface && gymListResponseDataInterface.data.length > itemsPerPage">
+
+                <pagination-template #p="paginationApi" (pageChange)="currentPage = $event">
+        
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination pagination-theme">
+            
+                            <li [class.disabled]="p.isFirstPage()">
+                                <a *ngIf="!p.isFirstPage()" (click)="p.previous()" href="javascript:;" tabindex="-1">
+                                    <i class="ion-arrow-left-c"></i>
+                                </a>
+                            </li>
+                
+                            <li *ngFor="let page of p.pages" [class.active]="p.getCurrent() === page.value">
+                                <a href="javascript:;" (click)="p.setCurrent(page.value);goAtStartList(storeListTop);" *ngIf="p.getCurrent() !== page.value">{{
+                                page.label }}</a>
+                                <a href="javascript:;" *ngIf="p.getCurrent() === page.value">{{ page.label }}</a>
+                            </li>
+                
+                            <li [class.disabled]="p.isLastPage()">
+                                <a *ngIf="!p.isLastPage()" (click)="p.next()" href="javascript:;">
+                                    <i class="ion-arrow-right-c"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </pagination-template>
+            </div>
+            <!-- pagination end -->
+        </div>
+    </section>
+    <!-- END SECTION PROPERTIES LISTING -->
+
+    <!-- START FOOTER -->
+    <footer class="first-footer">
+        <div class="second-footer">
+            <div class="container">
+                <p>2021 © Copyright - All Rights Reserved.</p>
+                <ul class="netsocials">
+                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="#"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <a data-scroll href="#wrapper" class="go-up"><i class="fa fa-angle-double-up" aria-hidden="true"></i></a>
+    <!-- END FOOTER -->
+
+    <!--register form -->
+    <div class="login-and-register-form modal">
+        <div class="main-overlay"></div>
+        <div class="main-register-holder">
+            <div class="main-register fl-wrap">
+                <div class="close-reg"><i class="fa fa-times"></i></div>
+                <h3>Welcome to <span>Find<strong>Houses</strong></span></h3>
+                <div class="soc-log fl-wrap">
+                    <p>Login</p>
+                    <a href="#" class="facebook-log"><i class="fa fa-facebook-official"></i>Log in with Facebook</a>
+                    <a href="#" class="twitter-log"><i class="fa fa-twitter"></i> Log in with Twitter</a>
+                </div>
+                <div class="log-separator fl-wrap"><span>Or</span></div>
+                <div id="tabs-container">
+                    <ul class="tabs-menu">
+                        <li class="current"><a href="#tab-1">Login</a></li>
+                        <li><a href="#tab-2">Register</a></li>
+                    </ul>
+                    <div class="tab">
+                        <div id="tab-1" class="tab-contents">
+                            <div class="custom-form">
+                                <form method="post" name="registerform">
+                                    <label>Username or Email Address * </label>
+                                    <input name="email" type="text" onClick="this.select()" value="">
+                                    <label>Password * </label>
+                                    <input name="password" type="password" onClick="this.select()" value="">
+                                    <button type="submit" class="log-submit-btn"><span>Log In</span></button>
+                                    <div class="clearfix"></div>
+                                    <div class="filter-tags">
+                                        <input id="check-a" type="checkbox" name="check">
+                                        <label for="check-a">Remember me</label>
+                                    </div>
+                                </form>
+                                <div class="lost_password">
+                                    <a href="#">Lost Your Password?</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab">
+                            <div id="tab-2" class="tab-contents">
+                                <div class="custom-form">
+                                    <form method="post" name="registerform" class="main-register-form" id="main-register-form2">
+                                        <label>First Name * </label>
+                                        <input name="name" type="text" onClick="this.select()" value="">
+                                        <label>Second Name *</label>
+                                        <input name="name2" type="text" onClick="this.select()" value="">
+                                        <label>Email Address *</label>
+                                        <input name="email" type="text" onClick="this.select()" value="">
+                                        <label>Password *</label>
+                                        <input name="password" type="password" onClick="this.select()" value="">
+                                        <button type="submit" class="log-submit-btn"><span>Register</span></button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--register form end -->
+
+</div>
+<!-- Wrapper / End -->

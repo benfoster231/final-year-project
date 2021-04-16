@@ -91,11 +91,54 @@
 
   <script src="https://cdn.jsdelivr.net/npm/round-slider@1.5.1/dist/roundslider.min.js"></script>
   <script type="text/javascript" src="assets/figures/jquery.bootstrap-touchspin.min.js"></script>
+  <script type="text/javascript" src="assets/js/markerclusterer.js"></script>
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3EfM6Bz4Dw_LOKvTFYc3eEU_yH9W1-Dg&libraries=places&language=en"></script>
 
   <!-- MAIN JS -->
   <!-- <script src="assets/js/script.js"></script> -->
   <script src="assets/js/exercise.js"></script>
   <script src="assets/js/exercise-calorie-calculator.js"></script>
   <script src="assets/js/reps.js"></script>
+  <style>
+    .pagination {
+            display: -ms-flexbox;
+            display: flex;
+            padding-left: 0;
+            list-style: none;
+            border-radius: .25rem
+        }
+        .pagination-lg .page-link {
+            padding: .75rem 1.5rem;
+            font-size: 1.25rem;
+            line-height: 1.5
+        }
+        
+        .pagination-lg .page-item:first-child .page-link {
+            border-top-left-radius: .3rem;
+            border-bottom-left-radius: .3rem
+        }
+        
+        .pagination-lg .page-item:last-child .page-link {
+            border-top-right-radius: .3rem;
+            border-bottom-right-radius: .3rem
+        }
+        
+        .pagination-sm .page-link {
+            padding: .25rem .5rem;
+            font-size: .875rem;
+            line-height: 1.5
+        }
+        
+        .pagination-sm .page-item:first-child .page-link {
+            border-top-left-radius: .2rem;
+            border-bottom-left-radius: .2rem
+        }
+        
+        .pagination-sm .page-item:last-child .page-link {
+            border-top-right-radius: .2rem;
+            border-bottom-right-radius: .2rem
+        }
+  </style>
 </body>
 </html>

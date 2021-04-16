@@ -7,6 +7,7 @@ import { ExerciseFiguresModule } from './all/layout/content/exercise-figures/exe
 import { ExerciseCalorieCalculatorModule } from './all/layout/content/exercise-calorie-calculator/exercise-calorie-calculator.module';
 import { ExerciseMacroCalculatorModule } from './all/layout/content/exercise-macro-calculator/exercise-macro-calculator.module';
 import { ExerciseOneRepMaxToolModule } from './all/layout/content/exercise-one-rep-max-tool/exercise-one-rep-max-tool.module';
+import { GymListModule } from './all/layout/content/gym-list/gym-list.module';
 
 const routes: Routes = [
   {
@@ -32,6 +33,10 @@ const routes: Routes = [
   {
     path: ROUTS.EXERCISE_ONE_REP_MAX_TOOL_PAGE,
     loadChildren: () => import('./all/layout/content/exercise-one-rep-max-tool/exercise-one-rep-max-tool.module').then(m => m.ExerciseOneRepMaxToolModule)
+  },
+  {
+    path: ROUTS.LIST_PAGE,
+    loadChildren: () => import('./all/layout/content/gym-list/gym-list.module').then(m => m.GymListModule)
   },
   {
     path: 'streches',

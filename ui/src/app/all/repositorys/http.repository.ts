@@ -64,4 +64,13 @@ export class HttpRepository {
 		// return this.http.get('../../' + URL.LOAD_ALL_SECTIONS)
 		// 		.map((res: Response) => res.json() || {});
 	}
+
+  getGymDetails(gymId: number) {
+
+    let urlSearchParams = new URLSearchParams();
+    urlSearchParams.append('gymId', gymId.toString());
+    let body = urlSearchParams.toString();
+
+    return this.get(URL.GYM_DETAIL + "?" + body, '');
+  }
 }

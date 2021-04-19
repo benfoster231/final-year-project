@@ -8,6 +8,7 @@ import { ExerciseCalorieCalculatorModule } from './all/layout/content/exercise-c
 import { ExerciseMacroCalculatorModule } from './all/layout/content/exercise-macro-calculator/exercise-macro-calculator.module';
 import { ExerciseOneRepMaxToolModule } from './all/layout/content/exercise-one-rep-max-tool/exercise-one-rep-max-tool.module';
 import { GymListModule } from './all/layout/content/gym-list/gym-list.module';
+import { GymDetailModule } from './all/layout/content/gym-detail/gym-detail.module';
 
 const routes: Routes = [
   {
@@ -39,8 +40,12 @@ const routes: Routes = [
     loadChildren: () => import('./all/layout/content/gym-list/gym-list.module').then(m => m.GymListModule)
   },
   {
-    path: 'streches',
+    path: ROUTS.STRECHES_PAGE,
     loadChildren: () => import('./all/layout/content/gym-streches/gym-streches.module').then(m => m.GymStrechedModule)
+  },
+  {
+    path: ROUTS.GYM_DETAIL + ':id',
+    loadChildren: () => import('./all/layout/content/gym-detail/gym-detail.module').then(m => m.GymDetailModule)
   },
 ];
 

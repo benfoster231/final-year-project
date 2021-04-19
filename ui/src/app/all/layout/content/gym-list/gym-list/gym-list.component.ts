@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { JsonConvert, OperationMode, ValueCheckingMode } from 'json2typescript';
 import { ToastrManager } from 'ng6-toastr-notifications';
-import { CONSTANTS, ROUTS } from 'src/app/all/constants/constants';
+import { CONSTANTS, ROUTS, URL } from 'src/app/all/constants/constants';
 import { LocalScript } from 'src/app/all/constants/localScript';
 import { GymListResponse } from 'src/app/all/model/gym-list';
 import { ResponseDataInterface } from 'src/app/all/model/response.model';
@@ -34,6 +34,8 @@ export class GymListComponent implements OnInit {
    public citySearch:string;
    public getStoreListDone: any;
    search:string = '';
+   URL: any = URL;
+   ROUTS: any = ROUTS;
 
   constructor(private httpRepository: HttpRepository,
     public manageMapService: ManageMapService,
@@ -49,7 +51,7 @@ export class GymListComponent implements OnInit {
     if(this.citySearch == "true" || this.citySearch == undefined) {
       // this.getHomePagData();
     } else {
-      this.itemsPerPage = 2;
+      this.itemsPerPage = 1;
     }
       
     this.getGymList();
@@ -150,6 +152,8 @@ export class GymListComponent implements OnInit {
         setTimeout(() => {
           $('#heder-login').addClass("fullscreen-top-md");
         }, 500);
+
+        console.log(this.gymListResponseDataInterface);
         
       } catch (e) {
         console.log("Exception", (<Error>e));

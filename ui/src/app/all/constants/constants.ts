@@ -14,6 +14,7 @@ export class ROUTS {
     public static EXERCISE_ONE_REP_MAX_TOOL_PAGE: string = 'exercise-one-rep-max-tool';
     public static LIST_PAGE: string = 'list'; 
     public static STRECHES_PAGE: string = 'streches';
+    public static GYM_DETAIL: string = 'gym/detail/';
 }
 
 export class URL {
@@ -21,6 +22,8 @@ export class URL {
     public static HOME: string = environment.serverUrl + 'panino/api/homePage';
     public static GYM_LIST: string = environment.serverUrl + 'gym/list';
     public static GYM_DETAILS_ON_MAP: string =  environment.serverUrl +'gym/map/details';
+    public static readonly GET_IMAGE: string = environment.serverUrl + 'gym/files/getImage?name=';
+    public static readonly GYM_DETAIL: string = environment.serverUrl + 'gym/detail';
 }
 
 export class CONSTANTS {

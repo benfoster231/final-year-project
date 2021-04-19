@@ -34,6 +34,8 @@ export class GymListModel {
 	@JsonProperty("longitude", null , true)
 	longitude:number = undefined;
 	
+	@JsonProperty("facilities", null , true)
+	facilities:string = undefined;
 }
 
 @JsonObject("GymListResponse")

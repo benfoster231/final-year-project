@@ -206,12 +206,13 @@ public class GymController {
 
             	if (multipartFile.getOriginalFilename().length() > 0) {
             		String membershipImgPath = GYM_GALLERY_FILE_PATH + new Date().getTime() + "_" + multipartFile.getOriginalFilename().replaceAll(" ", "-");
+            		multipartFile.transferTo(new File(FILE_PATH + membershipImgPath));
 //            		image.transferTo(new File(FILE_PATH + membershipImgPath));
 //            		photos.add(membershipImgPath);
-            		File file = new File(FILE_PATH + membershipImgPath);
-            		OutputStream out = new FileOutputStream(file);
+//            		File file = new File(FILE_PATH + membershipImgPath);
+//            		OutputStream out = new FileOutputStream(file);
             		// Write your data
-            		out.close();
+//            		out.close();
             		photos.add(membershipImgPath);
             	}
 			}

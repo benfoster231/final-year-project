@@ -249,6 +249,33 @@
 								</div>
 							</div>
 							<div class="form-group">
+								<label>Facilities</label>
+								<div class="form-group form-inline">
+									<input class="form-control" type="checkbox" id="aerobic" th:field="*{aerobic}">
+									<label style="margin-left: 12px;">Aerobic</label>
+<!-- 								</div> -->
+<!-- 								<div class="form-group form-inline"> -->
+									<input style="margin-left: 12px;" class="form-control" type="checkbox" id="aerobic" th:field="*{dance}">
+									<label style="margin-left: 12px;">Dance</label>
+<!-- 								</div> -->
+<!-- 								<div class="form-group form-inline"> -->
+									<input style="margin-left: 12px;"  class="form-control" type="checkbox" id="aerobic" th:field="*{fitness}">
+									<label style="margin-left: 12px;">Fitness</label>
+<!-- 								</div> -->
+<!-- 								<div class="form-group form-inline"> -->
+									<input style="margin-left: 12px;" class="form-control" type="checkbox" id="aerobic" th:field="*{pilates}">
+									<label style="margin-left: 12px;">Pilates</label>
+<!-- 								</div> -->
+<!-- 								<div class="form-group form-inline"> -->
+									<input style="margin-left: 12px;" class="form-control" type="checkbox" id="aerobic" th:field="*{weightLifting}">
+									<label style="margin-left: 12px;">Weight Lifting</label>
+<!-- 								</div> -->
+<!-- 								<div class="form-group form-inline"> -->
+									<input style="margin-left: 12px;" class="form-control" type="checkbox" id="aerobic" th:field="*{yoga}">
+									<label style="margin-left: 12px;">Yoga</label>
+								</div>
+							</div>
+							<div class="form-group">
 								<label>Description</label>
 								<textarea id="blog-description" rows="4" class="form-control summernote" placeholder="Enter your description here" th:field="*{description}" required></textarea>
 								<label th:if="${#fields.hasErrors('description')}" th:errors="*{description}" class="validation-message"></label>

@@ -70,6 +70,24 @@ public class Gym extends BaseEntity<Serializable> {
 	@NotEmpty(message = "Please provide description")
 	private String description;
 	
+	@Column(name = "aerobic")
+	private boolean aerobic;
+	
+	@Column(name = "dance")
+	private boolean dance;
+	
+	@Column(name = "fitness")
+	private boolean fitness;
+	
+	@Column(name = "pilates")
+	private boolean pilates;
+	
+	@Column(name = "weight_lifting")
+	private boolean weightLifting;
+	
+	@Column(name = "yoga")
+	private boolean yoga;
+	
 	public Gym() {
 	}
 
@@ -214,4 +232,53 @@ public class Gym extends BaseEntity<Serializable> {
 	public Date getModifiedDatetime() {
 		return modifiedDatetime;
 	}
+
+	public boolean isAerobic() {
+		return aerobic;
+	}
+
+	public void setAerobic(boolean aerobic) {
+		this.aerobic = aerobic;
+	}
+
+	public boolean isDance() {
+		return dance;
+	}
+
+	public void setDance(boolean dance) {
+		this.dance = dance;
+	}
+
+	public boolean isFitness() {
+		return fitness;
+	}
+
+	public void setFitness(boolean fitness) {
+		this.fitness = fitness;
+	}
+
+	public boolean isPilates() {
+		return pilates;
+	}
+
+	public void setPilates(boolean pilates) {
+		this.pilates = pilates;
+	}
+
+	public boolean isWeightLifting() {
+		return weightLifting;
+	}
+
+	public void setWeightLifting(boolean weightLifting) {
+		this.weightLifting = weightLifting;
+	}
+
+	public boolean isYoga() {
+		return yoga;
+	}
+
+	public void setYoga(boolean yoga) {
+		this.yoga = yoga;
+	}
+	
 }

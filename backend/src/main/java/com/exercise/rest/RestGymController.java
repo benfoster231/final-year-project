@@ -51,11 +51,22 @@ public class RestGymController {
 	}
 	
 	@RequestMapping(value="details",method = RequestMethod.GET)
-	public ResponseEntity<Response> getConcreteStoreDetailsOnMap(@RequestParam("gymId") Long gymId){
+	public ResponseEntity<Response> getGymDetailsOnMap(@RequestParam("gymId") Long gymId){
 		
 		try {
 			MapLocationsDetails mapLocationsDetails = gymService.getMapLocationDetails(gymId);
 			return ResponseGenerator.generateResponse(new Response("gym.exist", mapLocationsDetails), HttpStatus.OK);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return ResponseGenerator.generateResponse(new Response("please.try.again", null), HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+	
+	@RequestMapping(value="/gym/detail",method = RequestMethod.GET)
+	public ResponseEntity<Response> getGymDetails(@RequestParam("gymId") Long gymId){
+		
+		try {
+			return gymService.getGymDetails(gymId);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return ResponseGenerator.generateResponse(new Response("please.try.again", null), HttpStatus.INTERNAL_SERVER_ERROR);

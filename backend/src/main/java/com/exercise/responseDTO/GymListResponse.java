@@ -23,6 +23,8 @@ public class GymListResponse {
 	private BigDecimal distance;
 	
 	private String distanceInFormate;
+	
+	private String facilities;
 
 	public Long getId() {
 		return id;
@@ -102,6 +104,14 @@ public class GymListResponse {
 
 	public void setDistanceInFormate(String distanceInFormate) {
 		this.distanceInFormate = distanceInFormate;
+	}
+
+	public String getFacilities() {
+		return facilities;
+	}
+
+	public void setFacilities(String facilities) {
+		this.facilities = facilities;
 	}
 	
 }

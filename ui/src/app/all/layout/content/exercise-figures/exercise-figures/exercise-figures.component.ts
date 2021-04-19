@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CustomJs } from 'src/app/all/constants/customJs';
+import { muscleJs } from 'src/app/all/constants/muscleJs';
 
 //To run jquery
 declare var $: any;
@@ -14,6 +15,7 @@ export class ExerciseFiguresComponent implements OnInit {
 
   ngOnInit(): void {
     CustomJs.init();
+    muscleJs.init();
     $(".radio-option input:radio").change(function () {
       if ($(this).val() == "male") {
           $('#malefigures').css("display", "block");

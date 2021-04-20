@@ -5,9 +5,9 @@
 				<li class="menu-title"> 
 					<span>Main</span>
 				</li>
-				<li th:classappend="${#httpServletRequest.getRequestURI() == '/gym/home' ? 'noti-dot':''}">
-					<a th:href="@{/admin/home}"><i class="fa fa-tachometer"></i> <span> Dashboard</span></a>
-				</li>
+<!-- 				<li th:classappend="${#httpServletRequest.getRequestURI() == '/gym/home' ? 'noti-dot':''}"> -->
+<!-- 					<a th:href="@{/admin/home}"><i class="fa fa-tachometer"></i> <span> Dashboard</span></a> -->
+<!-- 				</li> -->
 				<li th:classappend="${#httpServletRequest.getRequestURI() == '/gym' ? 'noti-dot':''}">
 					<a th:href="@{/gym/}"><i class="fa fa-users"></i> <span> Gyms</span></a>
 				</li>

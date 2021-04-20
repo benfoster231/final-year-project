@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ROUTS } from '../../../constants/constants';
 
 @Component({
   selector: 'app-header-before-login',
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderBeforeLoginComponent implements OnInit {
 
   constructor() { }
-
+  public ROUTS:any=ROUTS;
   ngOnInit(): void {
   }
 

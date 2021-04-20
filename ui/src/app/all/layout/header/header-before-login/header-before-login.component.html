@@ -1,1 +1,46 @@
-<p>header-before-login works!</p>
+<header id="header-container">
+    <!-- Header -->
+    <div id="header">
+        <div class="container container-header">
+            <!-- Left Side Content -->
+            <div class="left-side">
+                <!-- Logo -->
+                <div id="logo">
+                    <a href="javascript:void(0);"><img src="assets/images/bg/fitness.jpg" alt=""></a>
+                </div>
+                <!-- Mobile Navigation -->
+                <div class="mmenu-trigger">
+                    <button class="hamburger hamburger--collapse" type="button">
+                        <span class="hamburger-box">
+                            <span class="hamburger-inner"></span>
+                        </span>
+                    </button>
+                </div>
+                <!-- Main Navigation -->
+                <nav id="navigation" class="style-1">
+                    <ul id="responsive">
+                        <li><a href="javascript:;" >What is Elite Muscles</a></li>
+                        <li><a href="javascript:;" routerLink="/{{ROUTS.EXERCISE_FIGURES_PAGE}}" routerLinkActive="active">Excercises</a></li>
+                        <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="javascript:void(0);" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Tools
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                  <a class="dropdown-item" href="javascript:void(0);" routerLink="/{{ROUTS.EXERCISE_CALORIE_CALCULATOR_PAGE}}" routerLinkActive="active">Calorie calculator</a>
+                                  <a class="dropdown-item" href="javascript:void(0);" routerLink="/{{ROUTS.EXERCISE_MACRO_CALCULATOR_PAGE}}" routerLinkActive="active">Macro calculator</a>
+                                  <a class="dropdown-item" href="javascript:void(0);" routerLink="/{{ROUTS.EXERCISE_ONE_REP_MAX_TOOL_PAGE}}" routerLinkActive="active">One rep max tool</a>
+                                </div>
+                              </li>
+                         
+                        <li><a href="javascript:;">Media</a></li>
+                    </ul>
+                </nav>
+                <!-- Main Navigation / End -->
+            </div>
+            <!-- Left Side Content / End -->
+
+        </div>
+    </div>
+    <!-- Header / End -->
+
+</header>

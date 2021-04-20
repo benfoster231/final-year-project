@@ -19,7 +19,7 @@ export class ROUTS {
 
 export class URL {
 
-    public static HOME: string = environment.serverUrl + 'panino/api/homePage';
+    public static HOME: string = environment.serverUrl + '';
     public static GYM_LIST: string = environment.serverUrl + 'gym/list';
     public static GYM_DETAILS_ON_MAP: string =  environment.serverUrl +'gym/map/details';
     public static readonly GET_IMAGE: string = environment.serverUrl + 'gym/files/getImage?name=';

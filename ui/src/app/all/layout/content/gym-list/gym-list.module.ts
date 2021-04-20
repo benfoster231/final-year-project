@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { GymListRoutingModule } from './gym-list-routing.module';
 import { GymListComponent } from './gym-list/gym-list.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { SharedModule } from '../../../shared-module/shared.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
   imports: [
     CommonModule,
     GymListRoutingModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    SharedModule
   ]
 })
 export class GymListModule { }

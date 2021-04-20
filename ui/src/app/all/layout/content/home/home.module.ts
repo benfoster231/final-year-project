@@ -6,6 +6,7 @@ import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home/home.component';
 import { GooglePlaceModule } from "ngx-google-places-autocomplete";
 import {NgcCookieConsentModule} from 'ngx-cookieconsent';
+import { SharedModule } from '../../../shared-module/shared.module';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import {NgcCookieConsentModule} from 'ngx-cookieconsent';
     NgbModule,
     GooglePlaceModule,
     NgcCookieConsentModule,
+    SharedModule
   ]
 })
 export class HomeModule { }

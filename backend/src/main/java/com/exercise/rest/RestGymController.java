@@ -39,7 +39,7 @@ public class RestGymController {
 		}
 	}
 	
-	@RequestMapping(value="details",method = RequestMethod.GET)
+	@RequestMapping(value="gym/map/details",method = RequestMethod.GET)
 	public ResponseEntity<Response> getGymDetailsOnMap(@RequestParam("gymId") Long gymId){
 		
 		try {

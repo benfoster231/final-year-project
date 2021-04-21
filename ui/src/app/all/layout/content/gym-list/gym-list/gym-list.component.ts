@@ -77,28 +77,12 @@ export class GymListComponent implements OnInit {
     //Call api for marker store info on map
     this.httpRepository.getGymDetailsOnMap(concreteStoreId).subscribe(res => {
     
-      // make list of panini of store
-      let list: string = '';
-      if(res.data.authenticatedPaninoList !== null) { 
-        res.data.authenticatedPaninoList.forEach(function (value) {
-              
-          list = list + `<li></li>`;
-
-        });
-      }  
-      let luvazzaHtml='';
-      if(res.data.lavazza)
-        luvazzaHtml = '<img src="assets/img/lavazza.png" alt="lavazza"  class="icon-size mg-l-5 lavazza">';
-      
-    
-      // set info text
       let infoTextHtml = `
         <div>
-          <h4></h4>
+          <h4><a href=`+ CONSTANTS.FRONTEND_URL +`/`+ROUTS.GYM_DETAIL + res.data.gymId +` target="_blank">`+res.data.name+`</a></h4>
           <br/>
           <p>`+ res.data.address +`</p>
           <br/> 
-          <ul>`+ list+`</ul>
         </div>
       `;
 

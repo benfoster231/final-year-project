@@ -13,7 +13,7 @@ export class ROUTS {
     public static EXERCISE_MACRO_CALCULATOR_PAGE: string = 'exercise-macro-calculator';
     public static EXERCISE_ONE_REP_MAX_TOOL_PAGE: string = 'exercise-one-rep-max-tool';
     public static LIST_PAGE: string = 'list'; 
-    public static STRECHES_PAGE: string = 'streches';
+    public static STRECHES_PAGE: string = '';
     public static GYM_DETAIL: string = 'gym/detail/';
 }
 
@@ -43,6 +43,7 @@ export class CONSTANTS {
         'centerLat':-23.69804199999999,
         'centerLog':133.8807471
     };
+    public static readonly TYPE_URL = 'type_url';
 }
 
 export class MESSAGES {

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CustomJs } from 'src/app/all/constants/customJs';
 import { muscleJs } from 'src/app/all/constants/muscleJs';
+import { ManageCookieService } from '../../../../services/manage-cookie.service';
+import { CONSTANTS } from '../../../../constants/constants';
 
 //To run jquery
 declare var $: any;
@@ -11,20 +13,42 @@ declare var $: any;
 })
 export class ExerciseFiguresComponent implements OnInit {
 
-  constructor() { }
+  CONSTANTS:any=CONSTANTS;
+  constructor(public manageCookieService:ManageCookieService) { }
 
   ngOnInit(): void {
     CustomJs.init();
     muscleJs.init();
-    $(".radio-option input:radio").change(function () {
-      if ($(this).val() == "male") {
-          $('#malefigures').css("display", "block");
-          $('#femalefigures').css("display", "none");
-      } else {
-          $('#malefigures').css("display", "none");
-          $('#femalefigures').css("display", "block");
-      }
-    });
+    setTimeout(() => {
+      this.init();
+    }, 1000);
+    
   }
 
+  init(){
+    this.manageCookieService.setCookie('sex','m');
+  }
+
+  change(){
+    if ($(".radio-option input[type=radio]:checked").val() == "male") {
+      $('#malefigures').css("display", "block");
+      $('#femalefigures').css("display", "none");
+      
+      this.manageCookieService.setCookie('sex','m');
+    } else {
+        $('#malefigures').css("display", "none");
+        $('#femalefigures').css("display", "block");
+        this.manageCookieService.setCookie('sex','f');
+    }
+  }
+  setType(value){
+    if(value == this.getType()){
+      this.manageCookieService.setCookie(CONSTANTS.TYPE_URL,'');
+    } else {
+      this.manageCookieService.setCookie(CONSTANTS.TYPE_URL,value);
+    }
+  }
+  getType(){
+   return this.manageCookieService.getCookie(CONSTANTS.TYPE_URL);
+  }
 }

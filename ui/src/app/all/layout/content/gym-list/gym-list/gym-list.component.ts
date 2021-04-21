@@ -133,28 +133,28 @@ export class GymListComponent implements OnInit {
         this.gymListResponseDataInterface = responseDataInterface;
 
         let mapMarkers : MapMarker[] = [];
-        this.gymListResponseDataInterface.data.forEach(function (value) {
-          let mapMarker1: MapMarker = new MapMarker();
-          mapMarker1.lat = value.latitude;
-          mapMarker1.lng = value.longitude;
-          mapMarker1.centerLat = lat;
-          mapMarker1.centerLog = log;
-          mapMarker1.extraData = value.id;
-          if(value.lavazza)
-            mapMarker1.icon = "mapAppIcon.png";
-          else
-            mapMarker1.icon = "mapAppIcon.png";
+        if(this.gymListResponseDataInterface.data.length > 0) {
+          this.gymListResponseDataInterface.data.forEach(function (value) {
+            let mapMarker1: MapMarker = new MapMarker();
+            mapMarker1.lat = value.latitude;
+            mapMarker1.lng = value.longitude;
+            mapMarker1.centerLat = lat;
+            mapMarker1.centerLog = log;
+            mapMarker1.extraData = value.id;
+            if(value.lavazza)
+              mapMarker1.icon = "mapAppIcon.png";
+            else
+              mapMarker1.icon = "mapAppIcon.png";
 
-          mapMarkers.push(mapMarker1);
-        });
+            mapMarkers.push(mapMarker1);
+          });
 
-        this.manageMap(mapMarkers);
-        setTimeout(() => {
-          $('#heder-login').addClass("fullscreen-top-md");
-        }, 500);
+          this.manageMap(mapMarkers);
+          setTimeout(() => {
+            $('#heder-login').addClass("fullscreen-top-md");
+          }, 500);
 
-        console.log(this.gymListResponseDataInterface);
-        
+        }
       } catch (e) {
         console.log("Exception", (<Error>e));
       }

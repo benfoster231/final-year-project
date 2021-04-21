@@ -144,7 +144,7 @@ function fillInAddress() {
         break;
     }
     
-    address1 = this.getAddressFromComponents(place.address_components);
+//    address1 = this.getAddressFromComponents(place.address_components);
   }
   address1Field.value = address1;
   postalField.value = postcode;

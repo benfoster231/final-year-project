@@ -29,18 +29,7 @@ public class RestGymController {
 	public ResponseEntity<Response> getConcreteStoreList(@RequestParam (name = "lattitude",required=false) BigDecimal lattitude,
 														@RequestParam (name = "longittude",required=false) BigDecimal longittude){
 		try {
-//			if(cityId != null) {
-//				CityRequest city = cityService.findById(cityId);
-//				lattitude = city.getCityCenterLatitudeSigned();
-//				longittude = city.getCityCenterLongitudeSigned();
-//			}
 			List<GymListResponse> gymListResponses = gymService.getGymListByCity(lattitude,longittude);
-//			GymListResponse m = gymListResponses.get(0);
-//			GymListResponse n = gymListResponses.get(0);
-//			GymListResponse o = gymListResponses.get(0);
-//			gymListResponses.add(m);
-//			gymListResponses.add(n);
-//			gymListResponses.add(o);
 			if(CollectionUtils.isEmpty(gymListResponses))
 				return ResponseGenerator.generateResponse(new Response("gym.not.exist", null), HttpStatus.INTERNAL_SERVER_ERROR);
 			return ResponseGenerator.generateResponse(new Response("gym.exist",gymListResponses), HttpStatus.OK);

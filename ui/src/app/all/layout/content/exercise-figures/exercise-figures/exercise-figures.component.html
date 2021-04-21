@@ -13,23 +13,23 @@
                     <div style="margin-top: 8px;padding: 0px;" class="col-sm-1 the-check-list">
                     <div class="radio-option mr-2" style="float:left;">
                         <div class="inner"></div>
-                        <input type="radio" name="radio" value="male" checked/>
+                        <input type="radio" (change)="change()" name="radio" value="male" checked/>
                         <span class="mt-1">Male</span>
                     </div>
                     </div>
                     <div style="margin-top: 8px;padding: 0px;" class="col-sm-1 the-check-list">
                         <div class="radio-option mr-2" style="float:left;">
                             <div class="inner"></div>
-                            <input type="radio" name="radio" value="female" />
+                            <input type="radio" (change)="change()" name="radio" value="female" />
                             <span class="mt-1">Female</span>
                         </div>
                     </div>
                     <div style="padding: 0px;margin: 0px;" class="col-sm-10">
-                        <button class="btn btn-outline btn-primary">Stretches</button>
-                        <button class="btn btn-outline btn-primary">Bodyweight</button>
-                        <button class="btn btn-outline btn-primary">Barbell</button>
-                        <button class="btn btn-outline btn-primary">Dumbbells</button>
-                        <button class="btn btn-outline btn-primary">Kettlebells</button>
+                        <button class="btn btn-outline btn-primary" (click)="setType('Stretches')" [ngClass]="{'active':getType()=='Stretches'}">Stretches</button>
+                        <button class="btn btn-outline btn-primary" (click)="setType('Bodyweight')" [ngClass]="{'active':getType()=='Bodyweight'}">Bodyweight</button>
+                        <button class="btn btn-outline btn-primary" (click)="setType('Barbell')" [ngClass]="{'active':getType()=='Barbell'}">Barbell</button>
+                        <button class="btn btn-outline btn-primary" (click)="setType('Dumbbells')" [ngClass]="{'active':getType()=='Dumbbells'}">Dumbbells</button>
+                        <button class="btn btn-outline btn-primary" (click)="setType('Kettlebells')" [ngClass]="{'active':getType()=='Kettlebells'}">Kettlebells</button>
                     </div>
                 </div>
             </div>
@@ -299,58 +299,5 @@
             <div class="status-mes"></div>
         </div>
     </div>
-    <!-- END PRELOADER -->
-
-    <!-- ARCHIVES JS -->
-    <!-- <script src="js/jquery-3.5.1.min.js"></script>
-    <script src="js/jquery-ui.js"></script>
-    <script src="js/tether.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/moment.js"></script>
-    <script src="js/transition.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/mmenu.min.js"></script>
-    <script src="js/mmenu.js"></script>
-    <script src="js/slick.min.js"></script>
-    <script src="js/slick3.js"></script>
-    <script src="js/fitvids.js"></script>
-    <script src="js/jquery.waypoints.min.js"></script>
-    <script src="js/jquery.counterup.min.js"></script>
-    <script src="js/imagesloaded.pkgd.min.js"></script>
-    <script src="js/isotope.pkgd.min.js"></script>
-    <script src="js/smooth-scroll.min.js"></script>
-    <script src="js/lightcase.js"></script>
-    <script src="js/owl.carousel.js"></script>
-    <script src="js/jquery.magnific-popup.min.js"></script>
-    <script src="js/ajaxchimp.min.js"></script>
-    <script src="js/newsletter.js"></script>
-    <script src="js/jquery.form.js"></script>
-    <script src="js/jquery.validate.min.js"></script>
-    <script src="js/forms-2.js"></script>
-    <script src="js/leaflet.js"></script>
-    <script src="js/leaflet-gesture-handling.min.js"></script>
-    <script src="js/leaflet-providers.js"></script>
-    <script src="js/leaflet.markercluster.js"></script>
-    <script src="js/map4.js"></script>
-    <script src="js/color-switcher.js"></script>
-    <script src="js/ui-lement.js"></script> -->
-
-    <!-- Slider Revolution scripts -->
-    <!-- <script src="revolution/js/jquery.themepunch.tools.min.js"></script>
-    <script src="revolution/js/jquery.themepunch.revolution.min.js"></script>
-    <script src="revolution/js/extensions/revolution.extension.actions.min.js"></script>
-    <script src="revolution/js/extensions/revolution.extension.carousel.min.js"></script>
-    <script src="revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
-    <script src="revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
-    <script src="revolution/js/extensions/revolution.extension.migration.min.js"></script>
-    <script src="revolution/js/extensions/revolution.extension.navigation.min.js"></script>
-    <script src="revolution/js/extensions/revolution.extension.parallax.min.js"></script>
-    <script src="revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
-    <script src="revolution/js/extensions/revolution.extension.video.min.js"></script> -->
-
-    <!-- MAIN JS -->
-    <!-- <script src="js/script.js"></script>
-    <script src="js/exercise.js"></script> -->
-
 </div>
 <!-- Wrapper / End -->

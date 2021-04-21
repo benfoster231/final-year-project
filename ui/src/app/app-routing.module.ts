@@ -40,13 +40,14 @@ const routes: Routes = [
     loadChildren: () => import('./all/layout/content/gym-list/gym-list.module').then(m => m.GymListModule)
   },
   {
-    path: ROUTS.STRECHES_PAGE,
-    loadChildren: () => import('./all/layout/content/gym-streches/gym-streches.module').then(m => m.GymStrechedModule)
-  },
-  {
     path: ROUTS.GYM_DETAIL + ':id',
     loadChildren: () => import('./all/layout/content/gym-detail/gym-detail.module').then(m => m.GymDetailModule)
   },
+  {
+    path: ROUTS.STRECHES_PAGE+':type/:gender/:bodypart',
+    loadChildren: () => import('./all/layout/content/gym-streches/gym-streches.module').then(m => m.GymStrechedModule)
+  },
+  
 ];
 
 @NgModule({

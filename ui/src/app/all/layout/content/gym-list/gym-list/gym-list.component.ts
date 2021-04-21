@@ -141,10 +141,7 @@ export class GymListComponent implements OnInit {
             mapMarker1.centerLat = lat;
             mapMarker1.centerLog = log;
             mapMarker1.extraData = value.id;
-            if(value.lavazza)
-              mapMarker1.icon = "mapAppIcon.png";
-            else
-              mapMarker1.icon = "mapAppIcon.png";
+            mapMarker1.icon = "mapAppIcon.png";
 
             mapMarkers.push(mapMarker1);
           });

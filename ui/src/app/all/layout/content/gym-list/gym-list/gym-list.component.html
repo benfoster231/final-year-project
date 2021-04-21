@@ -6,7 +6,7 @@
         <app-header-before-login></app-header-before-login>
         <div class="clearfix"></div>
         <!-- Header Container / End -->
-    <div class="header-map google-maps properties" *ngIf="(getStoreListDone && !getStoreListDone.closed) && (gymListResponseDataInterface && gymListResponseDataInterface.data.length > 0)">
+    <div class="header-map google-maps properties" *ngIf="(getStoreListDone && !getStoreListDone.closed) || (gymListResponseDataInterface && gymListResponseDataInterface.data.length > 0)">
         <div #gmap class="map" id="main-map" style="height: 450px; width: 100%;"></div>
     </div>
     <!-- END SECTION HEADINGS -->

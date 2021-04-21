@@ -82,7 +82,7 @@ export class GymListComponent implements OnInit {
       if(res.data.authenticatedPaninoList !== null) { 
         res.data.authenticatedPaninoList.forEach(function (value) {
               
-          list = list + `<li><a href="`+CONSTANTS.FRONTEND_URL+`/panini-details/`+value.paninoId+`">`+value.paninoName + `</a></li>`;
+          list = list + `<li></li>`;
 
         });
       }  
@@ -94,7 +94,7 @@ export class GymListComponent implements OnInit {
       // set info text
       let infoTextHtml = `
         <div>
-          <h4><a class="mapStore" href="`+CONSTANTS.FRONTEND_URL+`/store-details/`+concreteStoreId+`"> `+res.data.concereteStoreName + luvazzaHtml +`</a></h4>
+          <h4></h4>
           <br/>
           <p>`+ res.data.address +`</p>
           <br/> 

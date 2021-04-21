@@ -33,7 +33,7 @@ export class CONSTANTS {
     public static readonly LONGITUDE:string = '9.189982';
     public static LONG: string = 'long';
     public static LAT: string = 'lat';
-    public static FRONTEND_URL:string = 'https://www.paninomap.com/sitotest/#';
+    public static FRONTEND_URL:string = 'http://localhost:4200/#';
     public static readonly AUSTRALIA_MAP_LAT_LNG: MapMarker = {
         'lat' : -23.69804199999999,
         'lng' : 133.8807471,

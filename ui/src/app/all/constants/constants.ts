@@ -27,7 +27,7 @@ export class URL {
 }
 
 export class CONSTANTS {
-    public static readonly ITEMS_PER_PAGE = 1;
+    public static readonly ITEMS_PER_PAGE = 10;
     public static readonly CURRENT_PAGE = 1;
     public static readonly LATITUDE:string = "45.4650203";
     public static readonly LONGITUDE:string = '9.189982';

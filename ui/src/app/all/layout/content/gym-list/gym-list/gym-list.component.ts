@@ -51,7 +51,7 @@ export class GymListComponent implements OnInit {
     if(this.citySearch == "true" || this.citySearch == undefined) {
       // this.getHomePagData();
     } else {
-      this.itemsPerPage = 1;
+      this.itemsPerPage = 10;
     }
       
     this.getGymList();

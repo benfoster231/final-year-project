@@ -11,26 +11,6 @@ import { ToastrModule } from 'ng6-toastr-notifications';
 import { CookieService } from 'ngx-cookie-service';
 import {NgcCookieConsentModule, NgcCookieConsentConfig} from 'ngx-cookieconsent';
 
-const cookieConfig:NgcCookieConsentConfig = {
-  cookie: {
-    domain: 'Paninomap.com/test' // or 'your.domain.com' // it is mandatory to set a domain, for cookies to work properly (see)
-  },
-  palette: {
-    popup: {
-      background: '#f3efef'
-    },
-    button: {
-      background: '#e11417'
-    }
-  },
-  theme: 'edgeless',
-  type: 'opt-out',
-  content: {
-        href: 'https://www.accademiapaninoitaliano.it/privacy.html',
-        target: 'blank',
-        },
-};
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +21,6 @@ const cookieConfig:NgcCookieConsentConfig = {
     AppRoutingModule,
     ToastrModule.forRoot(),
     HttpClientModule,
-    NgcCookieConsentModule.forRoot(cookieConfig)
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]

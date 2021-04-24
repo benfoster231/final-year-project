@@ -1,0 +1,50 @@
+<div id="wrapper">
+        <!-- START SECTION HEADINGS -->
+        <!-- Header Container
+        ================================================== -->
+        <app-header-before-login></app-header-before-login>
+        <div class="clearfix"></div>
+    
+        <section style="padding: 0px;background: #fff;" class="blog-section">
+            <div class="container">
+                <div class="h-100 d-flex justify-content-center align-items-center">
+                    <div>
+                        <div id="login-box">
+                            <div *ngIf="error" class="floatError text-danger text-center">{{error}} <span class="float-right pointer" (click)="error=undefined">&#10005;</span></div>
+                            <div class="left ">
+                                <h1 class="mt-4">Sign up</h1>
+                                <form [formGroup]="form" (ngSubmit)="submit()" *ngIf="form">
+                                    <input type="text" placeholder="Name" formControlName="username"/>
+                                    <input type="text" placeholder="E-mail"  formControlName="email"/>
+                                    <input type="password" placeholder="Password" formControlName="password"/>
+                                    <input type="password" placeholder="Retype password" formControlName="password_match"/>
+                                    <button type="submit" class="btn btn-primary" [disabled]=disabled>Sign up</button>
+                                </form>
+                            </div>
+                              
+                            <div class="right text-center">
+                                <span class="loginwith mb-0 mt-4" >Login with Email</span>
+                                <p class="text-white">If you have an account already.</p>
+                                
+                                <button class="social-signin facebook" routerLink="/{{ROUTS.LOGIN}}">Login</button>
+                            </div>
+                              <div class="or">OR</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="first-footer">
+            <div class="second-footer">
+                <div class="container">
+                    <p>2021 © Copyright - All Rights Reserved.</p>
+                    <ul class="netsocials">
+                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="#"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    </div>

@@ -34,6 +34,9 @@ import com.exercise.database.entities.GymGallery;
 import com.exercise.repository.GymGalleryRepository;
 import com.exercise.repository.GymRepository;
 
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+
 @Controller
 @RequestMapping("/gym/")
 public class GymController {

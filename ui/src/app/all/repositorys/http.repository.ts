@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ManageCookieService } from '../services/manage-cookie.service';
 import { URL, CONSTANTS } from '../constants/constants';
@@ -10,6 +10,8 @@ import * as FUNCTION from '../constants/constants';
 })
 export class HttpRepository {
 
+  CONTSANT:any=CONSTANTS;
+  token:any = this.manageCookieService.getCookie(this.CONTSANT.ACCESS_TOKEN_COOKIE_TYPE) + ' ' + this.manageCookieService.getCookie(this.CONTSANT.ACCESS_TOKEN_COOKIE);
   constructor(private httpClient: HttpClient,
     private manageCookieService: ManageCookieService) { }
 
@@ -72,5 +74,73 @@ export class HttpRepository {
     let body = urlSearchParams.toString();
 
     return this.get(URL.GYM_DETAIL + "?" + body, '');
+  }
+
+  login(email: string, password: string): Observable<any> {
+
+    let urlSearchParams = new URLSearchParams();
+    urlSearchParams.append('email',email);
+    urlSearchParams.append('password',password);
+    let body = urlSearchParams.toString();
+
+    let httpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+
+    let options = {
+      headers: httpHeaders
+    };
+
+    return this.post(URL.LOGIN + "?" + body, '', options);
+  }
+
+  signUp(signupDTO: any): Observable<any> {
+      
+    //get language
+    let urlSearchParams = new URLSearchParams();
+    let body = urlSearchParams.toString();
+    let requestBody = {};
+    requestBody['email'] = signupDTO.email;
+    requestBody['name'] = signupDTO.username;
+    requestBody['password'] = signupDTO.password;
+
+    let httpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+
+    let options = {
+      headers: httpHeaders
+    };
+
+    return this.post(URL.SIGNUP + "?" + body, requestBody, options);
+  }
+
+  checkLogin() : Observable<any> {
+
+    
+    let httpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': this.token
+    });
+
+    let options = {
+      headers: httpHeaders
+    };
+    
+    return this.get(URL.CHECK_LOGIN , options);
+  }
+
+  logout() : Observable<any> {
+
+    let httpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': this.token
+    });
+
+    let options = {
+      headers: httpHeaders
+    };
+
+    return this.get(URL.LOGOUT, options);
   }
 }

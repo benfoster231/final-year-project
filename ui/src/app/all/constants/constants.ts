@@ -15,6 +15,8 @@ export class ROUTS {
     public static LIST_PAGE: string = 'list'; 
     public static STRECHES_PAGE: string = '';
     public static GYM_DETAIL: string = 'gym/detail/';
+    public static LOGIN: string = 'login';
+    public static SIGNUP: string = 'signup';
 }
 
 export class URL {
@@ -24,6 +26,10 @@ export class URL {
     public static GYM_DETAILS_ON_MAP: string =  environment.serverUrl +'gym/map/details';
     public static readonly GET_IMAGE: string = environment.serverUrl + 'gym/files/getImage?name=';
     public static readonly GYM_DETAIL: string = environment.serverUrl + 'gym/detail';
+    public static readonly LOGIN: string = environment.serverUrl + 'api/auth/login';
+    public static readonly SIGNUP: string = environment.serverUrl + 'api/public/signup';
+    public static readonly CHECK_LOGIN: string = environment.serverUrl + 'api/user/checkLogin';
+    public static readonly LOGOUT: string = environment.serverUrl + 'api/user/checkLogin';
 }
 
 export class CONSTANTS {
@@ -44,11 +50,15 @@ export class CONSTANTS {
         'centerLog':133.8807471
     };
     public static readonly TYPE_URL = 'type_url';
+    public static readonly ACCESS_TOKEN_COOKIE = 't';
+    public static readonly ACCESS_TOKEN_COOKIE_TYPE = 'tb';
+    public static readonly ERROR_CODE_401 = 401;
 }
 
 export class MESSAGES {
 
     public static SINGN_UP = 'You are sing-up successfully.';
+    public static EMAIL_OR_PASS = 'Your email or password are not valid.';
 }
 
 /**

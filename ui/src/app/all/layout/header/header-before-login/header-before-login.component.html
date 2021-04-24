@@ -21,7 +21,7 @@
                     <ul id="responsive">
                         <li><a href="javascript:;" routerLink="/{{ROUTS.HOME_PAGE}}" routerLinkActive="active">What is Elite Muscles</a></li>
                         <li><a href="javascript:;" routerLink="/{{ROUTS.EXERCISE_FIGURES_PAGE}}" routerLinkActive="active">Excercises</a></li>
-                        <li class="nav-item dropdown">
+                        <li class="nav-item dropdown" *ngIf="loginService.isLogin == true">
                                 <a class="nav-link dropdown-toggle" href="javascript:void(0);" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Tools
                                 </a>
@@ -30,17 +30,25 @@
                                   <a class="dropdown-item" href="javascript:void(0);" routerLink="/{{ROUTS.EXERCISE_MACRO_CALCULATOR_PAGE}}" routerLinkActive="active">Macro calculator</a>
                                   <a class="dropdown-item" href="javascript:void(0);" routerLink="/{{ROUTS.EXERCISE_ONE_REP_MAX_TOOL_PAGE}}" routerLinkActive="active">One rep max tool</a>
                                 </div>
-                              </li>
-                         
+                        </li>
                         <li><a href="javascript:;">Media</a></li>
                     </ul>
                 </nav>
-                <!-- Main Navigation / End -->
             </div>
-            <!-- Left Side Content / End -->
-
+            <div class="right-side">
+                <!-- Main Navigation -->
+                <nav id="navigation" class="style-1" *ngIf="loginService.isLogin == false">
+                    <ul id="responsive">
+                        <li><a href="javascript:void(0);" routerLink="/{{ROUTS.SIGNUP}}">Signup</a></li>
+                        <li><a href="javascript:void(0);" routerLink="/{{ROUTS.LOGIN}}">Login</a></li>
+                    </ul>
+                </nav>
+                <nav id="navigation" class="style-1" *ngIf="loginService.isLogin == true">
+                    <ul id="responsive">
+                        <li><a href="javascript:void(0);" (click)="loginService.signOut()">Logout</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
     </div>
-    <!-- Header / End -->
-
 </header>

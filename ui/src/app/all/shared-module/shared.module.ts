@@ -11,6 +11,7 @@ import { HeaderBeforeLoginComponent } from '../layout/header/header-before-login
     FooterComponent,
     HeaderAfterLoginComponent,
     HeaderBeforeLoginComponent,
+
   ],
   imports: [
     CommonModule,

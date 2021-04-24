@@ -2,13 +2,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ROUTS } from './all/constants/constants';
 import { IndexComponent } from './all/layout/content/index/index.component';
-import { HomeModule } from './all/layout/content/home/home.module';
-import { ExerciseFiguresModule } from './all/layout/content/exercise-figures/exercise-figures.module';
-import { ExerciseCalorieCalculatorModule } from './all/layout/content/exercise-calorie-calculator/exercise-calorie-calculator.module';
-import { ExerciseMacroCalculatorModule } from './all/layout/content/exercise-macro-calculator/exercise-macro-calculator.module';
-import { ExerciseOneRepMaxToolModule } from './all/layout/content/exercise-one-rep-max-tool/exercise-one-rep-max-tool.module';
-import { GymListModule } from './all/layout/content/gym-list/gym-list.module';
-import { GymDetailModule } from './all/layout/content/gym-detail/gym-detail.module';
 
 const routes: Routes = [
   {
@@ -18,6 +11,14 @@ const routes: Routes = [
   {
     path: ROUTS.HOME_PAGE,
     loadChildren: () => import('./all/layout/content/home/home.module').then(m => m.HomeModule)
+  },
+  {
+    path: ROUTS.LOGIN,
+    loadChildren: () => import('./all/layout/content/login/login.module').then(m => m.LoginModule)
+  },
+  {
+    path: ROUTS.SIGNUP,
+    loadChildren: () => import('./all/layout/content/signup/signup.module').then(m => m.SingupModule)
   },
   {
     path: ROUTS.EXERCISE_FIGURES_PAGE,

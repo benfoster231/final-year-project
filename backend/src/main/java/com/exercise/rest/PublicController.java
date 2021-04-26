@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.exercise.model.ResponseGenerator;
 import com.exercise.request.SignupRequest;
+import com.exercise.services.UserService;
 import com.exercise.utils.Response;
 
 import io.swagger.annotations.ApiOperation;
-import services.UserService;
 
 @RestController
 @RequestMapping(value = "/api/public")

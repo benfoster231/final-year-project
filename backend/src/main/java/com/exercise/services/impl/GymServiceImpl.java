@@ -22,11 +22,10 @@ import com.exercise.repository.GymRepository;
 import com.exercise.responseDTO.GymDetailResponse;
 import com.exercise.responseDTO.GymListResponse;
 import com.exercise.responseDTO.MapLocationsDetails;
+import com.exercise.services.GymService;
 import com.exercise.utils.HaversineDistance;
 import com.exercise.utils.Response;
 import com.exercise.utils.Utils;
-
-import services.GymService;
 
 @Service
 public class GymServiceImpl implements GymService {

@@ -3,6 +3,7 @@ package com.exercise.services.impl;
 import java.security.Principal;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -16,20 +17,25 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.exercise.database.entities.CalculationHistory;
 import com.exercise.database.entities.User;
+import com.exercise.enums.Calculation;
 import com.exercise.enums.Role;
 import com.exercise.model.ResponseGenerator;
+import com.exercise.repository.CalculationHistoryRepository;
 import com.exercise.repository.UserRepository;
 import com.exercise.request.SignupRequest;
+import com.exercise.services.UserService;
 import com.exercise.utils.Response;
-
-import services.UserService;
 
 @Service
 public class UserServiceImpl implements UserService{
 
 	@Autowired
 	private UserRepository userRepository;
+	
+	@Autowired
+	private CalculationHistoryRepository calculationHistoryRepository;
 	
 	@Autowired
 	private BCryptPasswordEncoder bcryptEncoder;
@@ -86,5 +92,35 @@ public class UserServiceImpl implements UserService{
 		User user = null;
 		user = principal == null ? null : userRepository.findByEmail(principal.getName());
 		return user;
+	}
+
+	/**
+	 * save history
+	 */
+	@Override
+	public ResponseEntity<Response> history(Calculation calculation, String data) {
+		User user = findLoginUser();
+		
+		CalculationHistory calculationHistory = new CalculationHistory();
+		calculationHistory.setCalculation(calculation);
+		calculationHistory.setData(data);
+		calculationHistory.setUser(user);
+		calculationHistory.setDate(new Date());
+		calculationHistoryRepository.save(calculationHistory);
+		
+		
+		return ResponseGenerator.generateResponse(new Response("signup.successfully",calculationHistory),HttpStatus.OK);
+	}
+
+	@Override
+	public ResponseEntity<Response> getHistory(Calculation calculation) {
+		User user = findLoginUser();
+		List<CalculationHistory> calculationHistory = new ArrayList<CalculationHistory>();
+		if(calculation == Calculation.ALL) {
+			calculationHistory = calculationHistoryRepository.findByUser(user);
+		} else {
+			calculationHistory = calculationHistoryRepository.findByUserAndCalculation(user, calculation);
+		}
+		return ResponseGenerator.generateResponse(new Response("signup.successfully",calculationHistory),HttpStatus.OK);
 	}
 }

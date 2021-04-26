@@ -21,8 +21,7 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 import com.exercise.auth.service.AuthenticationService;
 import com.exercise.auth.service.TokenProvider;
-
-import services.UserService;
+import com.exercise.services.UserService;
 
 public class TokenAuthenticationFilter extends OncePerRequestFilter {
 

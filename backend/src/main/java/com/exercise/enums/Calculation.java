@@ -1,0 +1,5 @@
+package com.exercise.enums;
+
+public enum Calculation {
+	EXERCISE_CALORIE_CALCULATOR, EXERCISE_MACRO_CALCULATOR, EXERCISE_ONE_REP_MAX_TOOL,ALL;
+}

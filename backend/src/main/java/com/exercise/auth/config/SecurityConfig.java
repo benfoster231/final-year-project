@@ -98,7 +98,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         		"/gym/**",
                         		"/oauth2/**",
                         		"/api/public/**").permitAll()
-                        .antMatchers("/gym/detail/**").access("hasAnyRole('ROLE_USER')")
+                        .antMatchers("/gym/**").permitAll()
                         .antMatchers("/api/user/**").access("hasAnyRole('ROLE_USER')")
                     .and()
                 .oauth2Login()

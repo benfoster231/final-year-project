@@ -15,9 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.exercise.model.ResponseGenerator;
 import com.exercise.responseDTO.GymListResponse;
 import com.exercise.responseDTO.MapLocationsDetails;
+import com.exercise.services.GymService;
 import com.exercise.utils.Response;
-
-import services.GymService;
 
 @RestController
 public class RestGymController {
@@ -26,7 +25,7 @@ public class RestGymController {
 	private GymService gymService;
 
 	@RequestMapping(value="/gym/list",method=RequestMethod.GET)
-	public ResponseEntity<Response> getConcreteStoreList(@RequestParam (name = "lattitude",required=false) BigDecimal lattitude,
+	public ResponseEntity<Response> getGymList(@RequestParam (name = "lattitude",required=false) BigDecimal lattitude,
 														@RequestParam (name = "longittude",required=false) BigDecimal longittude){
 		try {
 			List<GymListResponse> gymListResponses = gymService.getGymListByCity(lattitude,longittude);

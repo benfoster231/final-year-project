@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { CustomJs } from 'src/app/all/constants/customJs';
 import { repsJs } from 'src/app/all/constants/repsJs';
+import { LoginService } from '../../../../services/login.service';
+import { Router } from '@angular/router';
+import { ROUTS } from '../../../../constants/constants';
+import { ToastrManager } from 'ng6-toastr-notifications';
+import { HttpRepository } from 'src/app/all/repositorys/http.repository';
 
 //To run jquery
 declare var $: any;
@@ -11,9 +16,21 @@ declare var $: any;
 })
 export class ExerciseOneRepMaxToolComponent implements OnInit {
 
-  constructor() { }
+  login:boolean = false;
+  ROUTS:any = ROUTS;
+  constructor(private loginService:LoginService,
+    private toastr:ToastrManager,
+    private httpRepository:HttpRepository,
+    private router:Router) { }
 
   ngOnInit(): void {
+    this.login = this.loginService.checkIsLogin();
+    if(this.login == false){
+      this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+        this.router.navigateByUrl(ROUTS.HOME_PAGE);
+      });
+    }
+
     CustomJs.init();
     repsJs.init();
   }
@@ -30,7 +47,7 @@ export class ExerciseOneRepMaxToolComponent implements OnInit {
     if (unit == "kg") {}
     var oneRepMax = null;
     if (nrOfReps > maxReps) {
-        alert("You can't enter more than 10 reps!");
+        this.toastr.errorToastr("You can't enter more than 10 reps!");
         return false;
     } else if (nrOfReps < maxReps) {
         oneRepMax = trim(weight / (param1 - param2 * nrOfReps));
@@ -48,6 +65,20 @@ export class ExerciseOneRepMaxToolComponent implements OnInit {
     $("#test-circle90").find('text')[0].innerHTML = trim(oneRepMax * 0.90);
     $("#test-circle95").find('text')[0].innerHTML = trim(oneRepMax * 0.95);
     $("#maxrep").text(oneRepMax);
+    console.log(oneRepMax);
+    var data = {
+      result:oneRepMax,
+      units:unit,
+      nrOfReps:nrOfReps,
+      weight:weight,
+    };
+
+    this.httpRepository.historyCalculation(JSON.stringify(data),"EXERCISE_ONE_REP_MAX_TOOL").subscribe(res => {
+      
+    }, err => {
+      this.toastr.errorToastr(err.error.message);
+    });
+
     return false;
 }
 

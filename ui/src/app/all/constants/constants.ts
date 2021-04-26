@@ -17,6 +17,8 @@ export class ROUTS {
     public static GYM_DETAIL: string = 'gym/detail/';
     public static LOGIN: string = 'login';
     public static SIGNUP: string = 'signup';
+    public static CALCULATION_HISTORY: string = 'calculation-history';
+    public static ELITE_MUSCLES: string = 'elite-muscles';
 }
 
 export class URL {
@@ -30,6 +32,8 @@ export class URL {
     public static readonly SIGNUP: string = environment.serverUrl + 'api/public/signup';
     public static readonly CHECK_LOGIN: string = environment.serverUrl + 'api/user/checkLogin';
     public static readonly LOGOUT: string = environment.serverUrl + 'api/user/checkLogin';
+    public static readonly CALCULATION_HISTORY: string = environment.serverUrl + 'api/user/calculation-history';
+    public static readonly GET_HISTORY: string = environment.serverUrl + 'api/user/get-history';
 }
 
 export class CONSTANTS {
@@ -59,6 +63,7 @@ export class MESSAGES {
 
     public static SINGN_UP = 'You are sing-up successfully.';
     public static EMAIL_OR_PASS = 'Your email or password are not valid.';
+    public static GYM_NOT = 'Gym is not available at this location.';
 }
 
 /**

@@ -19,8 +19,9 @@
                 <!-- Main Navigation -->
                 <nav id="navigation" class="style-1">
                     <ul id="responsive">
-                        <li><a href="javascript:;" routerLink="/{{ROUTS.HOME_PAGE}}" routerLinkActive="active">What is Elite Muscles</a></li>
+                        <li><a href="javascript:;" routerLink="/{{ROUTS.ELITE_MUSCLES}}" routerLinkActive="active">What is Elite Muscles</a></li>
                         <li><a href="javascript:;" routerLink="/{{ROUTS.EXERCISE_FIGURES_PAGE}}" routerLinkActive="active">Excercises</a></li>
+                        <li><a href="javascript:;" *ngIf="loginService.isLogin == true" routerLink="/{{ROUTS.CALCULATION_HISTORY}}" routerLinkActive="active">History</a></li>
                         <li class="nav-item dropdown" *ngIf="loginService.isLogin == true">
                                 <a class="nav-link dropdown-toggle" href="javascript:void(0);" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Tools
@@ -31,7 +32,6 @@
                                   <a class="dropdown-item" href="javascript:void(0);" routerLink="/{{ROUTS.EXERCISE_ONE_REP_MAX_TOOL_PAGE}}" routerLinkActive="active">One rep max tool</a>
                                 </div>
                         </li>
-                        <li><a href="javascript:;">Media</a></li>
                     </ul>
                 </nav>
             </div>

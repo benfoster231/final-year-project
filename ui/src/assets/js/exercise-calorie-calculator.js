@@ -256,6 +256,7 @@ function calcDailyCals() {
     "no" === b ? a *= 1.2 : "light" === b ? a *= 1.375 : "moderate" === b ? a *= 1.55 : "heavy" === b ? a *= 1.725 : "extreme" === b && (a *= 1.9);
     a = Math.round(a + parseInt($("#gain_loss_amount").val()));
     $("#calAmount").text(1200 < a ? a : 1200);
+    $("#calculateButtone").click();
 }
 function ageYears(args) {
     return "Age<br/>" + "<input type='text' id='ageinput' style='width:2.7em;text-align: center;' value=" + (args.value).toFixed(0) + ">" + "<br/> Years";

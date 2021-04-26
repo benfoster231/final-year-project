@@ -1,0 +1,97 @@
+<div id="wrapper">
+    <!-- START SECTION HEADINGS -->
+    <!-- Header Container
+    ================================================== -->
+    <app-header-before-login></app-header-before-login>
+    <div class="clearfix"></div>
+  
+    <section style="padding: 0px;background: #fff;" class="blog-section">
+        <div class="container">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                <h2>Calculation history</h2>
+                <div class="w-100 table-responsive">
+                  <table id="sales_data" class="table my_datatables table-striped">
+                    <thead>
+                      <tr>
+                        <th>Date</th>
+                        <th>Calculation</th>
+                        <th>Data</th>
+                      </tr>
+                    </thead>
+                    <tbody *ngIf="calculationHistoryResponse">
+                      <tr *ngFor="let calculation of calculationHistoryResponse.data | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage };index as i">
+                        <td>{{calculation.date |date: 'dd MMM yyyy'}}</td>
+                        <td>
+                            <span *ngIf="calculation.calculation == 'EXERCISE_CALORIE_CALCULATOR'">Exercise calorie calculator</span>
+                            <span *ngIf="calculation.calculation == 'EXERCISE_MACRO_CALCULATOR'">Exercise macro calculator</span>
+                            <span *ngIf="calculation.calculation == 'EXERCISE_ONE_REP_MAX_TOOL'">Exercise one rep max tool</span>
+                        </td>
+                        <td>
+                            <span *ngIf="calculation.calculation == 'EXERCISE_CALORIE_CALCULATOR'">
+                                <ul>
+                                    <li>Result: {{getJson(calculation.data).result}}</li>
+                                    <li>Units: {{getJson(calculation.data).units}}</li>
+                                    <li>Weight: {{getJson(calculation.data).weight}}, 
+                                        Height: {{getJson(calculation.data).height}}</li>
+                                    <li>Age: {{getJson(calculation.data).age}}, 
+                                        Sex: {{getJson(calculation.data).sex}}</li>
+                                    <li>Activity: {{getJson(calculation.data).activity}}</li>
+                                    <li>Gain or loss: {{getJson(calculation.data).gainLoss}}</li>
+                                </ul>
+                            </span>
+                            <span *ngIf="calculation.calculation == 'EXERCISE_MACRO_CALCULATOR'">
+                                <ul>
+                                    <li>
+                                        result: <ul>
+                                            <li>Carbs: {{getJson(calculation.data).result.Carbs}} </li>
+                                            <li>Protein: {{getJson(calculation.data).result.Protein}} </li>
+                                            <li>Fat: {{getJson(calculation.data).result.Fat}} </li>
+                                        </ul>
+                                    </li>
+                                    <li>units: {{getJson(calculation.data).units}}</li>
+                                    <li>calories: {{getJson(calculation.data).calories}}</li>
+                                    <li>meals: {{getJson(calculation.data).meals}}</li>
+                                </ul>
+                            </span>
+                            <span *ngIf="calculation.calculation == 'EXERCISE_ONE_REP_MAX_TOOL'">
+                                <ul> 
+                                    <li>
+                                        result: {{getJson(calculation.data).result}}
+                                    </li>
+                                    <li>units: {{getJson(calculation.data).units}}</li>
+                                    <li>nrOfReps: {{getJson(calculation.data).nrOfReps}}</li>
+                                    <li>weight: {{getJson(calculation.data).weight}}</li>
+                                </ul>
+                            </span>
+                        </td>
+                      </tr>
+                      <tr class="noRecord" *ngIf="calculationHistoryResponse.data.length < 1">
+                        <td colspan="3" class="text-center"><h4>No record found</h4></td>
+                      </tr>
+                    </tbody>
+                      
+                    </table>
+                    <!-- PAGINATION -->
+                    <div style="margin-top: 50px;" class="clearfix" *ngIf="calculationHistoryResponse && calculationHistoryResponse.data.length > itemsPerPage">
+                        <pagination-controls style="text-align: center;" (pageChange)="currentPage = $event"></pagination-controls>
+                    </div>
+                  <!-- /PAGINATION -->
+                  </div>
+                </div>
+
+        </div>
+    </section>
+    <footer class="first-footer">
+        <div class="second-footer">
+            <div class="container">
+                <p>2021 ©</p>
+                <ul class="netsocials">
+                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="#"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+  </div>

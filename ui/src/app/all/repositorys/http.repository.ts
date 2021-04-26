@@ -116,7 +116,6 @@ export class HttpRepository {
   }
 
   checkLogin() : Observable<any> {
-
     
     let httpHeaders = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -142,5 +141,42 @@ export class HttpRepository {
     };
 
     return this.get(URL.LOGOUT, options);
+  }
+
+  getHistory(type: any) : Observable<any> {
+
+    let urlSearchParams = new URLSearchParams();
+    urlSearchParams.append('calculation',type);
+    let body = urlSearchParams.toString();
+
+    let httpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': this.token
+    });
+
+    let options = {
+      headers: httpHeaders
+    };
+
+    return this.get(URL.GET_HISTORY + '?' + body, options);
+  }
+
+  historyCalculation(data:string, calculation: string): Observable<any> {
+
+    let urlSearchParams = new URLSearchParams();
+    urlSearchParams.append('data',data);
+    urlSearchParams.append('calculation',calculation);
+    let body = urlSearchParams.toString();
+
+    let httpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': this.token
+    });
+
+    let options = {
+      headers: httpHeaders
+    };
+
+    return this.post(URL.CALCULATION_HISTORY + "?" + body, '', options);
   }
 }

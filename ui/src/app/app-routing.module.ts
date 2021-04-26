@@ -41,6 +41,14 @@ const routes: Routes = [
     loadChildren: () => import('./all/layout/content/gym-list/gym-list.module').then(m => m.GymListModule)
   },
   {
+    path: ROUTS.ELITE_MUSCLES,
+    loadChildren: () => import('./all/layout/content/elite-muscles-about/elite-muscles-about.module').then(m => m.EliteMusclesAboutModule)
+  },
+  {
+    path: ROUTS.CALCULATION_HISTORY,
+    loadChildren: () => import('./all/layout/content/calculation-history/calculation-history.module').then(m => m.CalculationHistoryModule)
+  },
+  {
     path: ROUTS.GYM_DETAIL + ':id',
     loadChildren: () => import('./all/layout/content/gym-detail/gym-detail.module').then(m => m.GymDetailModule)
   },

@@ -259,7 +259,7 @@ export class exerciseCalorieCalculatorJs {
             }
             return ret;
         }
-        function calcDailyCals() {
+        function  calcDailyCals() {
             let b: any = "standard" === $("input[name='units']:checked").val();
             let a: any = 0;
             a = parseFloat($("input[name='weight']").val());

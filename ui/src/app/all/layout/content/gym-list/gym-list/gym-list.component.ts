@@ -8,6 +8,7 @@ import { GymListResponse } from 'src/app/all/model/gym-list';
 import { ResponseDataInterface } from 'src/app/all/model/response.model';
 import { HttpRepository } from 'src/app/all/repositorys/http.repository';
 import { ManageMapService, MapMarker } from 'src/app/all/services/manage-map.service';
+import { MESSAGES } from '../../../../constants/constants';
 
 declare var google: any;
 declare var $:any;
@@ -146,7 +147,7 @@ export class GymListComponent implements OnInit {
 
     }, err => {
 
-      // this.toastr.warningToastr(this.translate.instant('MESSAGES.STORE_NOT_AVAILABLE'));
+      this.toastr.warningToastr(MESSAGES.GYM_NOT);
       //To load all js for sticky header etc.
       LocalScript.init();
       // unBlockUi();

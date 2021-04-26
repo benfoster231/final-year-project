@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { CustomJs } from 'src/app/all/constants/customJs';
 import { muscleJs } from 'src/app/all/constants/muscleJs';
 import { ManageCookieService } from '../../../../services/manage-cookie.service';
-import { CONSTANTS } from '../../../../constants/constants';
+import { CONSTANTS, ROUTS } from '../../../../constants/constants';
+import { LoginService } from '../../../../services/login.service';
+import { Router } from '@angular/router';
 
 //To run jquery
 declare var $: any;
@@ -14,9 +16,14 @@ declare var $: any;
 export class ExerciseFiguresComponent implements OnInit {
 
   CONSTANTS:any=CONSTANTS;
-  constructor(public manageCookieService:ManageCookieService) { }
+  ROUTS:any=ROUTS;
+  login:boolean = false;
+  constructor(public manageCookieService:ManageCookieService,
+    public loginService:LoginService,
+    public router:Router) { }
 
   ngOnInit(): void {
+    
     CustomJs.init();
     muscleJs.init();
     setTimeout(() => {

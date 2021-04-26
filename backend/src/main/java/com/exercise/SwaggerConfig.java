@@ -6,7 +6,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import springfox.documentation.builders.PathSelectors;
-import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.service.Contact;
 import springfox.documentation.spi.DocumentationType;
@@ -21,7 +20,6 @@ public class SwaggerConfig {
 	public Docket apiDocket() {
 	    return new Docket(DocumentationType.SWAGGER_2)
 	            .select()
-	            .apis(RequestHandlerSelectors.basePackage("com.exercise.restcontroller"))
 	            .paths(PathSelectors.any())
 	            .build()
 	            .apiInfo(getApiInfo());
@@ -33,7 +31,7 @@ public class SwaggerConfig {
 	            "Exercise Rest APIs",
 	            "1.0",
 	            "",
-	            new Contact("Parth Solanki","https://aimtechnolabs.com","parth@aimtechnolabs.com"),
+	            new Contact("name","website","email"),
 	            "",
 	            "",
 	            Collections.emptyList()

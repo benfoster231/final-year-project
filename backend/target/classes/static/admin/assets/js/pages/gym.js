@@ -51,8 +51,7 @@ function ajaxSubmitForm() {
     var form = $('#add-blog-form')[0];
  
     var data = new FormData(form);
- 
- 
+    
     $("#submitButton").prop("disabled", true);
  
     $.ajax({
@@ -71,9 +70,12 @@ function ajaxSubmitForm() {
         		location.reload();
         	} else {
                 $('#add_trainer1').replaceWith(data);
+                initAutocomplete();
                 applyPopUpJs();
                 submitForm();
                 hideInput();
+                photoGallery();
+                initMap();
         	}
         },
         error: function(jqXHR, textStatus, errorThrown) {  
@@ -88,11 +90,16 @@ function openDeleteBlogModal(id) {
 	var val = $('#blog_url').attr('href') + id;
 	$('#blog_url').attr('href',val);
 	var name  = $('#id_'+id).text();
-	$('#delete_training').modal('show');
+	if (confirm('Delete Gym!, Are you sure want to delete?')) {
+		location.href="/gym/delete/"+id;
+	} else {
+	}
+
+
+//	$('#delete_training').modal('show');
 }
 
 function closeDeleteBlogModal() {
-	$('#add_trainer').modal('hide');
 	 $('#add_trainer').modal('hide');
 }
 function readURL(input) {
